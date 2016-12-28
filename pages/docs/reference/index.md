@@ -13,9 +13,6 @@ Kotlin 언어와 [표준 라이브러리](/api/latest/jvm/stdlib/index.html)의 
 [기본적인 문법](basic-syntax.html)으로 시작하여, 조금 더 고급의 주제로 나아갑니다.
 레퍼런스를 읽으면서, 여러분은 [온라인 IDE](http://try.kotlinlang.org/)에서 샘플들을 테스트해 볼 수 있습니다. 
 
-Once you get an idea of what Kotlin looks like, try yourself in solving some [Kotlin Koans](/docs/tutorials/koans.html) - interactive programming exercises.
-If you are not sure how to solve a Koan, or you're looking for a more elegant solution, check out [Kotlin idioms](idioms.html).
-
 Kotlin이 어떻게 생겼나 감을 좀 잡으려면 [Kotlin Koans](/docs/tutorials/koans.html)을 풀어보세요. - 대화형 프로그래밍 연습
 Koan의 해결법을 모르거나, 더 우아한 해결책을 찾는다면, [Kotlin idioms](idioms.html)을 확인해보세요.
 
