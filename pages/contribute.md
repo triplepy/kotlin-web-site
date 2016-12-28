@@ -52,26 +52,46 @@ JetBrains 에서 일하는 팀에, 거기에는 코틀린 프로젝트의  거�
 
 당신이 코틀린에 대한 자습서 또는 비디오를 생성할 수 있나요? 그렇다면 알려 주시기 바랍니다. 우리는 커뮤니티 컨텐츠에 속하는 특징을 가지는 것이 더 행복할 것입니다. -(http://kotlinlang.org/docs/resources.html).
 
+ 
 
+{0}5{/0} {1}{2}    {/2}{/1}{0}프리젠테이션 {2}                                                                                                                                    {/2}7{/0}
 
-### Presentations
+ 
 
-If you've given or are giving presentations on Kotlin, let us know. We'll [feature it on the list](http://kotlinlang.org/docs/events.html)
+당신이 코틀린에 대해 프리젠테이션을 주거나 줄경우, 저희에게 알려주십시오. 우리는 목록에 특별히 포함할 것입니다. (http://kotlinlang.org/docs/events.html)
 
-### Kotlin-x Projects and Community Projects
+ 
 
-Kotlin ships with a very small runtime and it's the aim to keep it that way. We believe other functionality that is missing from the standard runtime library can be developed
-as Kotlin Contributions under the [Kotlin-X](https://github.com/kotlinx/kotlinx) umbrella or as individual projects by community members. If you have a library that you think
-others might find useful, let us know. If you want to contribute to any of the existing ones, check them out.
+### 코틀린-X 프로젝트 및 커뮤니티 프로젝트
 
-### Translations
+ 
 
-You are welcome to translate the Kotlin documentation into your own language and to publish your translation on your Web site.
-However, note that we will not be able to host your translation in this repository and to publish it on kotlinlang.org.
-This site is the official documentation for the language, and we need to be able to ensure that all the information here
-is correct and up-to-date. Doing this with a language that no one on the team speaks is unfortunately not feasible at this time.
+코틀린은 매우 작은 런타임과 함께 제공하고 그것을 그렇게 유지하는 것이 목표입니다. 우리는 표준 런타임 라이브러리에서 누락 된 다른 기능들이 개발 될 수 있다고 생각합니다.
 
-### Spread the word
+커뮤니티 멤버들의해 코틀린 기여들의 범위 또는 개개인의 프로젝트들이 있습니다. ( umbrella : umbrella 의 또 다른 뜻은 '일정한 범위를 커버하는 보호막' ) 당신은 당신이 생각하는 라이브러리가있는 경우
 
-Kotlin is a new language but we have high hopes for it and we need people that believe in it to spread the word! 
+다른 사람들이 유익하게 찾을 수 있도록 , 우리가 알도록 해주세요. 당신은 기존의것들에 기여하고자하는 경우 이를 확인하시기 바랍니다.
 
+ 
+
+번역 
+
+ 
+
+당신이 당신의 언어로 코틀린 문서를 번역하고 웹 사이트에 번역을 게시하는것을 환영합니다.
+
+그러나 우리가이 저장소에 번역을 호스팅 할 수 없고, kotlinlang.org에 게시 할 수 있습니다.
+
+이 사이트는 언어에 대한 공식 문서이며, 우리는 여기에 모든 정보를 확인 할 수 있어야합니다
+
+그것이 정확하고 최신입니다. 팀에서  아무도 말하지 않는 언어로 (기여를) 하는것은 불행하게도 이 시점에서 알맞지 않습니다.
+
+ 
+
+ ### 언어의 확산
+
+ 
+
+코틀린은 새로운 언어이지만, 우리는 그것에 대한 높은 기대와  필요한 사람들이 언어를 널리 확산시킬 것으로 믿습니다.
+
+ 
