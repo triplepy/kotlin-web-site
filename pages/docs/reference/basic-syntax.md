@@ -5,11 +5,11 @@ category: "Basics"
 title: "Basic Syntax"
 ---
 
-# Basic Syntax
+# 기본 문법
 
-## Defining packages
+## 패키지 정의
 
-Package specification should be at the top of the source file:
+패키지 명세는 소스 파일 상단에 위치해야합니다.
 
 ``` kotlin
 package my.demo
@@ -19,13 +19,13 @@ import java.util.*
 // ...
 ```
 
-It is not required to match directories and packages: source files can be placed arbitrarily in the file system.
+디렉토리와 패키지는 일치하지 않아도 됩니다. 소스파일은 파일 시스템 내 어느 장소에나 위치할 수 있습니다.  
 
-See [Packages](packages.html).
+자세한 내용은 [패키지](packages.html)를 참조하세요. 
 
-## Defining functions
+## 함수 정의
 
-Function having two `Int` parameters with `Int` return type:
+두 개의 `Int`형 파라미터와 `Int`형 리턴 타입을 갖는 함수 :
 
 ``` kotlin
 fun sum(a: Int, b: Int): Int {
@@ -33,13 +33,13 @@ fun sum(a: Int, b: Int): Int {
 }
 ```
 
-Function with an expression body and inferred return type:
+식 몸체와 리턴 타입을 추론하는 함수 :
 
 ``` kotlin
 fun sum(a: Int, b: Int) = a + b
 ```
 
-Function returning no meaningful value:
+의미 있는 값을 리턴하지 않는 함수 :
 
 ``` kotlin
 fun printSum(a: Int, b: Int): Unit {
@@ -47,7 +47,7 @@ fun printSum(a: Int, b: Int): Unit {
 }
 ```
 
-`Unit` return type can be omitted:
+`Unit` 리턴 타입은 생략할 수 있습니다 :
 
 ``` kotlin
 fun printSum(a: Int, b: Int) {
@@ -55,11 +55,11 @@ fun printSum(a: Int, b: Int) {
 }
 ```
 
-See [Functions](functions.html).
+자세한 내용은 [함수](functions.html)를 참조하세요.
 
-## Defining local variables
+## 로컬 변수 정의
 
-Assign-once (read-only) local variable:
+한 번만 대입할 수 있는 (읽기 전용) 로컬 변수:
 
 ``` kotlin
 val a: Int = 1
@@ -68,32 +68,32 @@ val c: Int  // Type required when no initializer is provided
 c = 1       // definite assignment
 ```
 
-Mutable variable:
+변경가능한 변수
 
 ``` kotlin
 var x = 5 // `Int` type is inferred
 x += 1
 ```
 
-See also [Properties And Fields](properties.html).
+자세한 내용은 [프로퍼티와 필드](properties.html)를 참조하세요.
 
 
-## Comments
+## 주석
 
-Just like Java and JavaScript, Kotlin supports end-of-line and block comments.
+Java와 JavaScript처럼 Kotlin 역시 라인 주석과 블럭 주석을 지원합니다.
 
 ``` kotlin
-// This is an end-of-line comment
+// 이게 end-of-line (라인 주석) 입니다.
 
-/* This is a block comment
-   on multiple lines. */
+/* 이 것은 블록 주석 입니다.
+   여러 줄로 작성할 수 있습니다. */
 ```
 
-Unlike Java, block comments in Kotlin can be nested.
+Java와는 다르게 Kotlin의 블록 주석은 중첩이 가능합니다.
 
-See [Documenting Kotlin Code](kotlin-doc.html) for information on the documentation comment syntax.
+주석 문법에 대한 자세한 내용은 [코틀린 코드의 문서화](kotlin-doc.html)를 참조하세요.
 
-## Using string templates
+## 문자열 템플릿 사용
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -103,9 +103,9 @@ fun main(args: Array<String>) {
 }
 ```
 
-See [String templates](basic-types.html#string-templates).
+자세한 내용은 [문자열 템플릿](basic-types.html#string-templates)를 참조하세요.
 
-## Using conditional expressions
+## 조건식 사용
 
 ``` kotlin
 fun max(a: Int, b: Int): Int {
@@ -117,19 +117,19 @@ fun max(a: Int, b: Int): Int {
 }
 ```
 
-Using *if*{: .keyword } as an expression:
+*if*{: .keyword }를 식으로 사용:
 
 ``` kotlin
 fun max(a: Int, b: Int) = if (a > b) a else b
 ```
 
-See [*if*{: .keyword }-expressions](control-flow.html#if-expression).
+자세한 내용은 [*if*{: .keyword }-식](control-flow.html#if-expression)를 참조하세요.
 
-## Using nullable values and checking for *null*{: .keyword }
+## null이 가능한 값 (nullable)을 사용하여 null 체크하기
 
-A reference must be explicitly marked as nullable when *null*{: .keyword } value is possible.
+레퍼런스에 null을 대입할 수 있다면, 반드시 *null*{: .keyword } 가능하다고 표시해주어야 합니다.
 
-Return *null*{: .keyword } if `str` does not hold an integer:
+`str`이 정수를 갖지 않을 경우 null을 리턴합니다. :
 
 ``` kotlin
 fun parseInt(str: String): Int? {
@@ -137,7 +137,7 @@ fun parseInt(str: String): Int? {
 }
 ```
 
-Use a function returning nullable value:
+nullable 값을 리턴하는 함수 사용 : 
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -149,15 +149,16 @@ fun main(args: Array<String>) {
     val x = parseInt(args[0])
     val y = parseInt(args[1])
 
-    // Using `x * y` yields error because they may hold nulls.
+    // `x * y`는 null이 들어갈 수 있으므로 에러를 발생시킵니다.
     if (x != null && y != null) {
+        // x와 y는 null 체크 후 자동으로 non-nullable로 캐스팅 됩니다.
         // x and y are automatically cast to non-nullable after null check
         print(x * y)
     }
 }
 ```
 
-or
+또는
 
 ``` kotlin
     // ...
@@ -170,45 +171,45 @@ or
         return
     }
 
-    // x and y are automatically cast to non-nullable after null check
+    // x와 y는 null 체크 후 자동으로 non-nullable로 캐스팅 됩니다.
     print(x * y)
 ```
 
-See [Null-safety](null-safety.html).
+자세한 내용은 [널 안전성 (Null-Safety)](null-safety.html)를 참조하세요.
 
-## Using type checks and automatic casts
+## 타입 검사와 자동 캐스팅
 
-The *is*{: .keyword } operator checks if an expression is an instance of a type.
-If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
+*is*{: .keyword } 연산자는 좌측이 우측의 타입 인스턴스인지 검사합니다.
+불변의 로컬 변수 또는 프로퍼티를 *is*{: .keyword } 연산자로 특정 타입인지 검사했다면, 명시적으로 캐스팅 할 필요가 없습니다. : 
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
     if (obj is String) {
-        // `obj` is automatically cast to `String` in this branch
+        // `obj`는 이 브랜치 내에서 `String`으로 자동 캐스팅 됩니다. 
         return obj.length
     }
 
-    // `obj` is still of type `Any` outside of the type-checked branch
+    // `obj`는 타입을 검사한 브랜치 밖에서 여전히 `Any`로 남아있습니다.
     return null
 }
 ```
 
-or
+또는
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
     if (obj !is String) return null
 
-    // `obj` is automatically cast to `String` in this branch
+    // `obj`는 이 브랜치 내에서 `String`으로 자동 캐스팅 됩니다. 
     return obj.length
 }
 ```
 
-or even
+혹은
 
 ``` kotlin
 fun getStringLength(obj: Any): Int? {
-    // `obj` is automatically cast to `String` on the right-hand side of `&&`
+    // `&&` 오른쪽의 `obj`는 `String`으로 자동 캐스팅 됩니다.
     if (obj is String && obj.length > 0) {
         return obj.length
     }
@@ -217,9 +218,9 @@ fun getStringLength(obj: Any): Int? {
 }
 ```
 
-See [Classes](classes.html) and [Type casts](typecasts.html).
+자세한 내용은 [클래스](classes.html)와 [타입 캐스팅](typecasts.html)을 참조하세요.
 
-## Using a `for` loop
+## `for` 루프 사용
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -229,7 +230,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-or
+또는
 
 ``` kotlin
 for (i in args.indices) {
@@ -237,9 +238,9 @@ for (i in args.indices) {
 } 
 ```
 
-See [for loop](control-flow.html#for-loops).
+자세한 내용은 [for 루프](control-flow.html#for-loops)를 참조하세요.
 
-## Using a `while` loop
+## `while` 루프
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -250,9 +251,9 @@ fun main(args: Array<String>) {
 }
 ```
 
-See [while loop](control-flow.html#while-loops).
+자세한 내용은 [while 루프](control-flow.html#while-loops)를 참조하세요.
 
-## Using `when` expression
+## `when` 식
 
 ``` kotlin
 fun cases(obj: Any) {
@@ -266,11 +267,11 @@ fun cases(obj: Any) {
 }
 ```
 
-See [when expression](control-flow.html#when-expression).
+자세한 내용은 [when 식](control-flow.html#when-expression)을 참조하세요.
 
-## Using ranges
+## 범위 (range) 사용
 
-Check if a number is within a range using *in*{: .keyword } operator:
+*in*{: .keyword } 연산자를 사용하면 숫자가 범위 내에 있는지 검사할 수 있습니다. :
 
 ``` kotlin
 if (x in 1..y-1) {
@@ -278,15 +279,14 @@ if (x in 1..y-1) {
 }
 ```
 
-Check if a number is out of range:
+숫자가 범위 밖에 있는지 검사하기 : 
 
 ``` kotlin
 if (x !in 0..array.lastIndex) {
     print("Out")
 }
 ```
-
-Iterating over a range:
+범위 내에서 반복처리 :
 
 ``` kotlin
 for (x in 1..5) {
@@ -294,11 +294,11 @@ for (x in 1..5) {
 }
 ```
 
-See [Ranges](ranges.html).
+자세한 내용은 [범위 (range)](ranges.html)를 참조하세요.
 
-## Using collections
+## 컬렉션 사용
 
-Iterating over a collection:
+컬렉션 내에서 반복처리 : 
 
 ``` kotlin
 for (name in names) {
@@ -306,15 +306,15 @@ for (name in names) {
 }
 ```
 
-Checking if a collection contains an object using *in*{: .keyword } operator:
+ *in*{: .keyword }로 컬렉션이 객체를 포함 하고 있는지 검사하기 :  
 
 ``` kotlin
-if (text in names) { // names.contains(text) is called
+if (text in names) { // names.contains(text) 가 호출 됨.
     print("Yes")
 }
 ```
 
-Using lambda expressions to filter and map collections:
+필터와 맵 컬렉션에 람다식을 사용하기 :
 
 ``` kotlin
 names
@@ -324,4 +324,4 @@ names
         .forEach { print(it) }
 ```
 
-See [Higher-order functions and Lambdas](lambdas.html).
+자세한 내용은 [고차원 함수와 람다](lambdas.html)를 참조하세요
