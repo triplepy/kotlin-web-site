@@ -5,11 +5,11 @@ category: "Basics"
 title: "Basic Syntax"
 ---
 
-# Basic Syntax
+# 기본 문법
 
-## Defining packages
+## 패키지 정의
 
-Package specification should be at the top of the source file:
+패키지 명세는 소스 파일 상단에 위치해야합니다.
 
 ``` kotlin
 package my.demo
@@ -19,13 +19,13 @@ import java.util.*
 // ...
 ```
 
-It is not required to match directories and packages: source files can be placed arbitrarily in the file system.
+디렉토리와 패키지는 일치하지 않아도 됩니다. 소스파일은 파일 시스템 내 어느 장소에나 위치할 수 있습니다.  
 
-See [Packages](packages.html).
+자세한 내용은 [Packages](packages.html)를 참조하세요. 
 
-## Defining functions
+## 함수 정의
 
-Function having two `Int` parameters with `Int` return type:
+두 개의 `Int`형 파라미터와 `Int`형 리턴 타입을 갖는 함수 :
 
 ``` kotlin
 fun sum(a: Int, b: Int): Int {
@@ -33,13 +33,13 @@ fun sum(a: Int, b: Int): Int {
 }
 ```
 
-Function with an expression body and inferred return type:
+식 몸체와 리턴 타입을 추론하는 함수 :
 
 ``` kotlin
 fun sum(a: Int, b: Int) = a + b
 ```
 
-Function returning no meaningful value:
+의미 있는 값을 리턴하지 않는 함수 :
 
 ``` kotlin
 fun printSum(a: Int, b: Int): Unit {
@@ -47,7 +47,7 @@ fun printSum(a: Int, b: Int): Unit {
 }
 ```
 
-`Unit` return type can be omitted:
+`Unit` 리턴 타입은 생략할 수 있습니다 :
 
 ``` kotlin
 fun printSum(a: Int, b: Int) {
@@ -55,11 +55,11 @@ fun printSum(a: Int, b: Int) {
 }
 ```
 
-See [Functions](functions.html).
+자세한 내용은 [Functions](functions.html)를 참조하세요.
 
-## Defining local variables
+## 로컬 변수 정의
 
-Assign-once (read-only) local variable:
+한 번만 대입할 수 있는 (읽기 전용) 로컬 변수:
 
 ``` kotlin
 val a: Int = 1
@@ -68,32 +68,32 @@ val c: Int  // Type required when no initializer is provided
 c = 1       // definite assignment
 ```
 
-Mutable variable:
+변경가능한 변수
 
 ``` kotlin
 var x = 5 // `Int` type is inferred
 x += 1
 ```
 
-See also [Properties And Fields](properties.html).
+자세한 내용은 [Properties And Fields](properties.html)를 참조하세요.
 
 
-## Comments
+## 주석
 
-Just like Java and JavaScript, Kotlin supports end-of-line and block comments.
+Java와 JavaScript처럼 Kotlin 역시 라인 주석과 블럭 주석을 지원합니다.
 
 ``` kotlin
-// This is an end-of-line comment
+// 이게 end-of-line (라인 주석) 입니다.
 
-/* This is a block comment
-   on multiple lines. */
+/* 이 것은 블록 주석 입니다.
+   여러 줄로 작성할 수 있습니다. */
 ```
 
-Unlike Java, block comments in Kotlin can be nested.
+Java와는 다르게 Kotlin의 블록 주석은 중첩이 가능합니다.
 
-See [Documenting Kotlin Code](kotlin-doc.html) for information on the documentation comment syntax.
+주석 문법에 대한 자세한 내용은 [코틀린 코드의 문서화](kotlin-doc.html)를 참조하세요.
 
-## Using string templates
+## 문자열 템플릿 사용
 
 ``` kotlin
 fun main(args: Array<String>) {
@@ -103,9 +103,9 @@ fun main(args: Array<String>) {
 }
 ```
 
-See [String templates](basic-types.html#string-templates).
+자세한 내용은 [문자열 템플릿](basic-types.html#string-templates)를 참조하세요.
 
-## Using conditional expressions
+## 조건식 사용
 
 ``` kotlin
 fun max(a: Int, b: Int): Int {
@@ -117,13 +117,13 @@ fun max(a: Int, b: Int): Int {
 }
 ```
 
-Using *if*{: .keyword } as an expression:
+*if*{: .keyword }를 식으로 사용:
 
 ``` kotlin
 fun max(a: Int, b: Int) = if (a > b) a else b
 ```
 
-See [*if*{: .keyword }-expressions](control-flow.html#if-expression).
+자세한 내용은 [*if*{: .keyword }-expressions](control-flow.html#if-expression)를 참조하세요.
 
 ## Using nullable values and checking for *null*{: .keyword }
 
