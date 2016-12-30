@@ -9,12 +9,12 @@ Kotlin 언어와 [표준 라이브러리](/api/latest/jvm/stdlib/index.html)의 
 
 ### Where to Begin
 
-이 레퍼런스는 여러분이 겨우 몇 시간 안에 Kotlin을 배울 수 있도록 쉽게 만들어졌습니다.
-[기본적인 문법](basic-syntax.html)으로 시작하여, 조금 더 고급의 주제로 나아갑니다.
+이 레퍼런스는 여러분이 단 몇 시간 안에 Kotlin을 배울 수 있도록 쉽게 만들어졌습니다.
+[기본적인 문법](basic-syntax.html)으로 시작하여, 조금 더 고급 주제로 나아갑니다.
 레퍼런스를 읽으면서, 여러분은 [온라인 IDE](http://try.kotlinlang.org/)에서 샘플들을 테스트해 볼 수 있습니다. 
 
-Kotlin이 어떻게 생겼나 감을 좀 잡으려면 [Kotlin Koans](/docs/tutorials/koans.html)을 풀어보세요. - 대화형 프로그래밍 연습
-Koan의 해결법을 모르거나, 더 우아한 해결책을 찾는다면, [Kotlin idioms](idioms.html)을 확인해보세요.
+Kotlin이 어떻게 생겼는지 감을 좀 잡으려면 [Kotlin Koans](/docs/tutorials/koans.html)을 풀어보세요. - 대화형 프로그래밍 연습  
+또한 Koans의 해결법을 모르거나, 더 우아한 해결책을 찾고자 한다면, [Kotlin idioms](idioms.html)을 확인해보세요.
 
 ### Browse offline
 여러분은 전체의 레퍼런스 문서를 하나의 [PDF file]({{ site.pdf_url }})로 다운받을 수 있습니다.
