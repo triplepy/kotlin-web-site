@@ -32,23 +32,18 @@
 
  
 
-| 입력 | bit width |
 
- Double  : 64 
-
- Float   : 32 
-
- Long 	 : 64
-
- int	 : 32 
-
- Short	 : 16 
-
- Byte	 : 8 
-
+| Type	 | Bitwidth |
+|--------|----------|
+| Double | 64       |
+| Float	 | 32       |
+| Long	 | 64       |
+| Int	   | 32       |
+| Short	 | 16       |
+| Byte	 | 8        |
  
 
-위 표의 형식들은 코틀린에서는 숫자들이 아닙니다.
+위 표의 형식들은 코틀린에서는 숫자들이 아닙니다. 자바와는 다르게 모두 대문자를 씁니다.
 
  
 
@@ -114,7 +109,7 @@ print(boxedA === anotherBoxedA) //! prints `false` !!!!
 
  
 
-한편으로 같게 유지된다.
+다른 한편으로는 같게 유지된다.
 
  
 
@@ -138,129 +133,129 @@ print(boxedA == anotherBoxedA) // prints `true`
 
  
 
-다른 표현 때문에 , 작은 유형은 큰 사람의 아형 수 없습니다.
-
-그들이 있다면, 우리는 다음과 같은 종류의 문제있을 것입니다 :
+다른 표현 때문에 , 작은 유형은 더 큰것의 하위유형이 아닙니다.  - [Due to different representations, smaller types are not subtypes of bigger ones.]
 
  
 
-```kotlin
+그렇게 분류하게  된다면 문제가 생길지도 모릅니다.
 
-// 가설 코드가 실제로 컴파일되지 않습니다 :
+ 
 
-발 A : 지능? = 1 // 박스형 지능 (java.lang의.Integer
+```kotilin
 
-발에 B : 긴? = A // 암시 적 변환은 박스형 롱 (java.lang의를 얻을 수 있습니다.길게
+// 실제로 컴파일 되지않는 가상의 코드 입니다.
 
-인쇄의 (a == 나) // 깜짝! 이 롱의 등호로 "false"를 인쇄 () 긴뿐만 아니라 할 다른 부분을 확인
+val a Int = 1 // A boxed Int ( java.lang.Integer)
+
+val b: Long?=a  //Long 형으로 암시적 변환이 되는 부분 (java.lang.Long)
+
+print ( a == b ) // 놀랍지 않나요?  이 표현은 Long 의 equals()메서드가 형이 다른지를 검사하고 확인하여 "false "를 출력합니다.
 
 ```
 
  
 
-그래서 정체성 그러나 심지어 평등뿐만 도처에 자동으로 상실되었을 것입니다.
+So not only identity, but even equality would have been lost silently all over the place.
+//그래서 정체성 뿐만 아니라 동일성까지도 모든 부분에서 조용히 사라질 수 있습니다.
 
  
 
-결과적으로, 작은 유형은 암시 적으로 더 큰 유형으로 변환되지 않습니다.
+결론적으로, 작은 타입들은 암시적으로는 큰 타입으로 변환될 수 없습니다.
 
-이것은 우리가 명시 적으로 전환하지 않고 'Int` 변수 Byte`'형식의 값을 할당 할 수 있다는 것을 의미
-
- 
-
-```코 틀린
-
-발에 B : 바이트 = 1 // OK, 리터럴은 정적으로 체크
-
-발 전 : 지능 = B // ERROR
-
-p40.
+이것은 우리가 명시적으로 형변환하지 않고 'Int` 변수로  Byte`'형식의 값을 할당 할 수 있다는 것을 의미합니다.
 
  
 
-우리는 숫자를 확대하기 위해 명시 적 변환을 사용할 수 있습니다
+```kotlin
+
+val b: Byte = 1  // OK, 리터럴은 정적으로 체크됩니다.
+
+val i: Int = b  // ERROR
+
+```
 
  
 
-```코 틀린
-
-발 전 : 지능 = b.toInt () // OK : 명시 적으로 확대
-
-p40.
+우리는 숫자를 확대하기 위해 명시적 형 변환을 사용할 수 있습니다.
 
  
 
-모든 숫자 유형은 다음의 변환을 지원합니다 :
+```kotiln
+val i: Int = b.toInt() // OK : 명시적인 확대
+
+```
 
  
 
-*`toByte () : Byte`
-
-*`toShort () : Short`
-
-*`toInt () : Int`
-
-*`toLong () : Long`
-
-*`toFloat () : Float`
-
-*`toDouble () : Double`
-
-*`toChar () : Char`
+코틀린에서는 형 변환을 위해서 다음의 타입을 제공합니다.
 
  
 
-암시 적 변환의 유무 형태는 문맥에서 유추 때문에 거의 두드러 및 산술 연산은 예를 들어, 적절한 전환을 위해 과부하
+*`toByte () : Byte`   : Byte로 변환
+
+*`toShort () : Short`   : Short 로 변환
+
+*`toInt () : Int`   : Int 로 변환
+
+*`toLong () : Long`   : Long 으로 변환
+
+*`toFloat () : Float`   : Float 로 변환
+
+*`toDouble () : Double`   : Double 로 변환
+
+*`toChar () : Char`   : Char로 변환
 
  
 
-```코 틀린
-
-발 리터 = 1L + 3 // 긴 + 지능 => 롱
-
-p40.
+암시적 형 변환의 없는것는  왜냐하면 형식은 문맥에서 유추 되고, 적절한 연산을 위해 산술 연산이 오버로드 되기때문에 암시적 형변환이 없는 경우는 드뭅니다. 다음 예시를 보세요.
 
  
 
-(1) 영업
+```kotlin
+val l = 1L + 3 // Long + Int => Long
+
+```
 
  
 
-코 틀린는 해당 클래스의 구성원으로 선언 된 번호를 통해 산술 연산의 표준 집합을 지원합니다 (그러나 컴파일러는 해당 지침에 이르기까지 호출을 최적화).
-
-[연산자 오버로딩 (운영자 overloading.html)를 참조하십시오.
+### 연산
 
  
 
-비트 연산으로, 더 그들을 위해 특수 문자하지만, 예를 들어 중위 형태로 호출 할 수있는 단지라는 기능을, 거기 없다 :
+Kotlin은 적절한 클래스의 멤버로 선언 된 숫자에 대한 산술 연산의 표준 집합을 지원합니다 (그러나 컴파일러는 호출을 해당 지침으로 최적화합니다).
+
+연산자 오버로딩 (operator overloading.html)를 참조하십시오.
 
  
 
-```코 틀린
-
-발 X = (1 SHL 2) 0x000FF000
-
-p40.
+비트 연산으로, 특정한 문자는 없지만 중위 형태로 호출 할 수있는 메서드를 제공합니다. 예시는 다음과 같습니다.
 
  
 
-여기에 (Int`와`Long``에만 사용 가능) 비트 연산의 전체 목록은 다음과 같습니다
+```kotlin
+val x = (1 shl 2) and 0x000FF000
+
+```
 
  
 
-*`SHL (비트)`- 시프트 왼쪽 서명 (자바의`<<`)
+비트 연산의 전체 목록은 다음과 같습니다 (`Int`와`Long`에만 사용 가능) 
 
-*`SHR (비트)`- 서명 오른쪽 쉬프트 (자바의`>>`)
+ 
 
-*`ushr (비트)`- 부호 오른쪽 쉬프트 (자바의`>>>`)
+* `shl(bits)` – signed shift left (Java's `<<`)
 
-* '와 (비트)`- 비트 및
+* `shr(bits)` – signed shift right (Java's `>>`)
 
-* '또는 (비트)`- 비트 또는
+* `ushr(bits)` – unsigned shift right (Java's `>>>`)
 
-*`XOR (비트)`- 비트 XOR
+* `and(bits)` – bitwise and
 
-*`의 INV ()`- 비트 반전
+* `or(bits)` – bitwise or
+
+* `xor(bits)` – bitwise xor
+
+* `inv()` – bitwise inversion
 
  
 
@@ -268,57 +263,55 @@ p40.
 
  
 
-문자는 유형 'Char`로 표시됩니다. 그들은 숫자로 직접 처리 할 수 ​​없습니다
+문자는 유형 'Char`로 표시됩니다. 문자 유형은 숫자로 직접  사용할 수 없습니다.
 
  
 
-```코 틀린
+```kotlin
 
-재미 검사 (C : 샤아) {
+fun check(c: Char) {
 
-    경우 (다 == 1) {// 오류 : 호환되지 않는 유형
+    if (c == 1) { // ERROR: incompatible types
 
-        p40.
+        // ...
+    }
+}
 
-    p40.
-
-p40.
-
-p40.
+```
 
  
 
-문자 리터럴은 작은 따옴표로 이동합니다`1'`.
+문자 리터럴은 작은 따옴표로 나타냅니다. `'1'`
 
-특수 문자는 백 슬래시를 사용하여 이스케이프 할 수 있습니다.
+특수 문자는 백슬래시를 사용하여 이스케이프 처리할 수 있습니다.
 
-다음 이스케이프 시퀀스가 ​​지원됩니다`\의 t`,`\의 b`,`n` \ '\의 r`,`\`,`\ "`,`\\`와`\ $으로`.
+다음 이스케이프 시퀀스가 ​​지원됩니다`\의 t`,`\의 b`,`n` \ '\의 r`,`\`,`\ "`,`\\`와`\ $`
 
-''\ uFF00'` : 다른 문자를 인코딩하려면 유니 코드 이스케이프 시퀀스 구문을 사용합니다.
-
- 
-
-우리는 명시 적으로`Int` 번호로 문자를 변환 할 수 있습니다 :
+''\ uFF00'` : 다른 문자를 인코딩하려면 유니 코드 이스케이프 시퀀스 구문을 사용하면 됩니다.
 
  
 
-```코 틀린
-
-재미 decimalDigitValue (C : 샤아) : 지능 {
-
-    (다 경우에!입고p40.
-
-        는 IllegalArgumentException ( "범위 중")를 던져
-
-    숫자 '0'.toInt () // 명시 적 변환 - c.toInt ()를 호출
-
-p40.
-
-p40.
+`Int`형은 명시적으로 숫자 변환을 할 수 있습니다 
 
  
 
-null 허용 기준이 필요할 때 숫자처럼, 문자 박스 있습니다. ID는 권투 동작에 의해 유지되지 않습니다.
+```kotiln
+
+fun decumalDigitValue(c: Char): Int {
+
+    if (c !In '0'..'9')
+
+        throw IllegalArgumentException("Out if range")
+
+    return c.toInt() - '0'.toInt() //  Explicit conversions to numbers
+
+}
+
+```
+
+ 
+
+숫자와 마찬가지로 , 문자도 nullable 참조가 필요하다면 감싸져 사용할 수 있습니다. 기존 타입은 감싸진 작업에 의해 보존되지는 않습니다.
 
  
 
@@ -326,15 +319,18 @@ null 허용 기준이 필요할 때 숫자처럼, 문자 박스 있습니다. ID
 
  
 
-유형은`Boolean` 논리 값을 나타내고, 두 값이있다 : * 사실 * {: .keyword}과 * 거짓 * {: .keyword}.
+`Boolean` 타입은  논리 값을 나타내고, * 사실 * {: .keyword}과 * 거짓 * {: .keyword} 같은 두가지의 값이 있습니다.
 
  
 
-null 허용 기준이 필요한 경우 부울는 박스 있습니다.
+Boolean타입 또한 nullable참조가 필요하다면 감싸져 사용 할 수 있습니다.
 
  
 
+기계 번역
 부울에 내장 작업은 다음과 같습니다
+문자 개수: 19개
+ 
 
  
 
