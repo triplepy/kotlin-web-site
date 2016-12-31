@@ -1,13 +1,8 @@
 ---
-
-유형 : 문서
-
-레이아웃 : 참조
-
-카테고리 : "구문"
-
-제목 : "기본 유형"
-
+type: doc
+layout: reference
+category: "Syntax"
+title: "Basic Types"
 ---
 
  
@@ -32,21 +27,14 @@
 
  
 
-| 입력 | 비트 폭 |
-
-|--------|----------| 
-
-| Double  | 64 |
-
-| Float | 32 |
-
-| Long | 64|
-
-| int | 32 |
-
-| Short | 16 |
-
-| Byte | 8 |
+| Type	 | Bitwidth |
+|--------|----------|
+| Double | 64       |
+| Float	 | 32       |
+| Long	 | 64       |
+| Int	   | 32       |
+| Short	 | 16       |
+| Byte	 | 8        |
 
  
 
