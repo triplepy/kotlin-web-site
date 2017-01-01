@@ -2,7 +2,7 @@
 type: doc
 layout: reference
 category: "Basics"
-title: "Basic Syntax"
+title: "기본 문법"
 ---
 
 # 기본 문법
