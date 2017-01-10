@@ -1,192 +1,128 @@
 ---
 type: doc
+
 layout: reference
+
 category: "Syntax"
+
 title: "Control Flow"
+
 ---
 
-# Control Flow
+ 
+
+# Control Flow ( 제어 흐름 )
+
+ 
 
 ## If Expression
 
-In Kotlin, *if*{: .keyword } is an expression, i.e. it returns a value.
-Therefore there is no ternary operator (condition ? then : else), because ordinary *if*{: .keyword } works fine in this role.
+ 
 
-``` kotlin
-// Traditional usage 
-var max = a 
+Kotlin 에서  *if* {: .keyword} 표현식은 반환값을 가집니다.
+
+따라서 삼항연사자는 쓰지않아도 됩니다.(condition ? then : else), 왜냐하면 보통의 경우  *if*{: .keyword } 이 표현식으로도 잘 사용할 수 있기 때문입니다.
+
+ 
+
+```kotlin
+
+// Traditional usage ( 전통적인 사용 )
+
+var max = a
+
 if (a < b) max = b
 
-// With else 
+ 
+
+// With else
+
 var max: Int
+
 if (a > b) {
-    max = a
+
+    max = a
+
 } else {
-    max = b
+
+    max = b
+
 }
- 
-// As expression 
+
+ 
+
+// As expression ( 표현식으로 )
+
 val max = if (a > b) a else b
 ```
 
-*if*{: .keyword } branches can be blocks, and the last expression is the value of a block:
+ 
+
+*if*{: .keyword } 문이 여러 block을 사용할 수 있고, 마지막 표현식은 block 의 값입니다
+
+ 
 
 ``` kotlin
+
 val max = if (a > b) {
-    print("Choose a")
-    a
+
+    print("Choose a")
+
+    a
+
 } else {
-    print("Choose b")
-    b
+
+    print("Choose b")
+
+    b
+
 }
+
 ```
 
-If you're using *if*{: .keyword } as an expression rather than a statement (for example, returning its value or
-assigning it to a variable), the expression is required to have an `else` branch.
+ 
 
-See the [grammar for *if*{: .keyword }](grammar.html#if).
+다른 표현식을 사용하기 보다 *if*{: .keyword } 표현을 사용한다면,  (예를들어, 값을 반환하거나 변수에 할당 할 때) 
+
+'else' 와같은 표현이 필요합니다.
+
+ 
+
+문법을 참고할 수 있습니다.  [grammar for *if*{: .keyword }](grammar.html#if).
+
+ 
 
 ## When Expression
 
-*when*{: .keyword } replaces the switch operator of C-like languages. In the simplest form it looks like this
+ 
 
-``` kotlin
-when (x) {
-    1 -> print("x == 1")
-    2 -> print("x == 2")
-    else -> { // Note the block
-        print("x is neither 1 nor 2")
-    }
+*when*{: .keyword } 표현은 c언어의 연산자 같은 switch문을 대신해서 사용할 수 있습니다.  가장 간단한 형태로는 다음과 같습니다.
+
+
+
+```
+when(x) {
+
+    1 -> print("x == 1")
+
+    2 -> print("x == 2")
+
+    else -> { // Note the block
+
+        print("x is neither 1 nor 2")
+
+    }
+
 }
 ```
 
-*when*{: .keyword } matches its argument against all branches sequentially until some branch condition is satisfied.
-*when*{: .keyword } can be used either as an expression or as a statement. If it is used as an expression, the value
-of the satisfied branch becomes the value of the overall expression. If it is used as a statement, the values of
-individual branches are ignored. (Just like with *if*{: .keyword }, each branch can be a block, and its value
-is the value of the last expression in the block.)
+*when*{: .keyword } 은 일부 분기의 조건이 충족 될 때까지 모든 조건 분기에 대해 해당 인수를 순차적으로 찾습니다. 
 
-The *else*{: .keyword } branch is evaluated if none of the other branch conditions are satisfied.
-If *when*{: .keyword } is used as an expression, the *else*{: .keyword } branch is mandatory,
-unless the compiler can prove that all possible cases are covered with branch conditions.
+*when*{: .keyword }은 표현식 또는 statement로 사용할 수 있습니다.  이는 표현식으로 사용되는 경우 , 값은
 
-If many cases should be handled in the same way, the branch conditions may be combined with a comma:
+만족 된 지점의 전체 식의 값이된다. 이것은 문장의 값으로 사용하면
 
-``` kotlin
-when (x) {
-    0, 1 -> print("x == 0 or x == 1")
-    else -> print("otherwise")
-}
-```
+각 지점은 무시됩니다. (그냥 *와 같은 * 경우 {: .keyword}, ​​각 지점은 블록, 그리고 그 값 수
 
-We can use arbitrary expressions (not only constants) as branch conditions
-
-``` kotlin
-when (x) {
-    parseInt(s) -> print("s encodes x")
-    else -> print("s does not encode x")
-}
-```
-
-We can also check a value for being *in*{: .keyword } or *!in*{: .keyword } a [range](ranges.html) or a collection:
-
-``` kotlin
-when (x) {
-    in 1..10 -> print("x is in the range")
-    in validNumbers -> print("x is valid")
-    !in 10..20 -> print("x is outside the range")
-    else -> print("none of the above")
-}
-```
-
-Another possibility is to check that a value *is*{: .keyword } or *!is*{: .keyword } of a particular type. Note that,
-due to [smart casts](typecasts.html#smart-casts), you can access the methods and properties of the type without
-any extra checks.
-
-```kotlin
-val hasPrefix = when(x) {
-    is String -> x.startsWith("prefix")
-    else -> false
-}
-```
-
-*when*{: .keyword } can also be used as a replacement for an *if*{: .keyword }-*else*{: .keyword } *if*{: .keyword } chain.
-If no argument is supplied, the branch conditions are simply boolean expressions, and a branch is executed when its condition is true:
-
-``` kotlin
-when {
-    x.isOdd() -> print("x is odd")
-    x.isEven() -> print("x is even")
-    else -> print("x is funny")
-}
-```
-
-See the [grammar for *when*{: .keyword }](grammar.html#when).
-
-
-## For Loops
-
-*for*{: .keyword } loop iterates through anything that provides an iterator. The syntax is as follows:
-
-``` kotlin
-for (item in collection) print(item)
-```
-
-The body can be a block.
-
-``` kotlin
-for (item: Int in ints) {
-    // ...
-}
-```
-
-As mentioned before, *for*{: .keyword } iterates through anything that provides an iterator, i.e.
-
-* has a member- or extension-function `iterator()`, whose return type
-  * has a member- or extension-function `next()`, and
-  * has a member- or extension-function `hasNext()` that returns `Boolean`.
-
-All of these three functions need to be marked as `operator`.
-
-A `for` loop over an array is compiled to an index-based loop that does not create an iterator object.
-
-If you want to iterate through an array or a list with an index, you can do it this way:
-
-``` kotlin
-for (i in array.indices) {
-    print(array[i])
-}
-```
-
-Note that this "iteration through a range" is compiled down to optimal implementation with no extra objects created.
-
-Alternatively, you can use the `withIndex` library function:
-
-``` kotlin
-for ((index, value) in array.withIndex()) {
-    println("the element at $index is $value")
-}
-```
-
-See the [grammar for *for*{: .keyword }](grammar.html#for).
-
-## While Loops
-
-*while*{: .keyword } and *do*{: .keyword }..*while*{: .keyword } work as usual
-
-``` kotlin
-while (x > 0) {
-    x--
-}
-
-do {
-    val y = retrieveData()
-} while (y != null) // y is visible here!
-```
-
-See the [grammar for *while*{: .keyword }](grammar.html#while).
-
-## Break and continue in loops
-
-Kotlin supports traditional *break*{: .keyword } and *continue*{: .keyword } operators in loops. See [Returns and jumps](returns.html).
+블록의 마지막 식의 값이다.)
 
