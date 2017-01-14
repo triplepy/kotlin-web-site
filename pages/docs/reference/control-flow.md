@@ -248,9 +248,9 @@ for (item: Int in ints) {
 
  
 
-* 입력 member 또는 extension-function `iterator()`의 반환 타입
-* 입력 member 또는 extension-function `next()`, 그리고
-* 입력 member 또는 extension-function `hasNext()` 는 `Boolean` 값을 리턴한다.
+* member 또는 extension-function `iterator()`의 반환 타입을 가진다.
+* member 또는 extension-function `next()` , and
+* member 또는 extension-function `hasNext()` 는 `Boolean` 리턴 값을 가진다.
 
  
 
