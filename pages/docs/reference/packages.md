@@ -48,14 +48,14 @@ import foo.Bar // Bar is accessible
 import bar.Bar as bBar // bBar stands for 'bar.Bar'
 ```
 
-은`import` 키워드 클래스 오기에 한정되지 않는다; 당신은 또한 다른 선언을 가져 오는 데 사용할 수 있습니다 :
+`import` 키워드는 클래스를 가져오는것에만 한정되지 않습니다. 당신은 또한 다른 선언을 가져 오는 데 사용할 수 있습니다 :
 
 * 최상위 함수와 속성;
-* 객체 선언 (객체 declarations.html 번호의 객체 선언)에 선언 된 함수와 속성;
-    * 열거 상수 (열거-classes.html)
+    *문법에 선언되어져 있는 함수와 속성. [object declarations](object-declarations.html#object-declarations);
+* [enum constants](enum-classes.html)
 
-자바와는 달리, 코 틀린은 별도의 "가져 오기 정적"구문이 없습니다; 이 선언의 모든 정규`import` 키워드를 사용하여 가져옵니다.
+자바와는 달리, 코틀린은 별도의 "import static"은 구문이 나누어져 있지 않습니다. 이 선언은 모두 정규`import` 키워드를 사용하여 가져옵니다.
 
-최고 수준의 선언의 ## 가시성
+## Visibility of Top-level Declarations ( 최 상위 선언 )
 
-최상위 선언 * 개인 *를 표시되어 있으면 {: .keyword}, 그것이이 선언있어 파일에 개인이다 ([가시성 수정 자 (가시성-modifiers.html)).
+최상위 선언 *private*{: .keyword} 로 표시되어 있으면, ​​선언 된 파일에 대해 비공개입니다.(see [Visibility Modifiers](visibility-modifiers.html)).
