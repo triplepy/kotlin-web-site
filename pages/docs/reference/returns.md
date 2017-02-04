@@ -9,9 +9,9 @@ title: "Returns and Jumps"
 
 코틀린에는 3가지 구조의 jump 연산자가 있습니다.
 
-* *return*{: .keyword }. 키워드는 가장 가까운 함수를 기본적인 반환을 하거나 Anonymous 함수로 반환합니다.[anonymous function](lambdas.html#anonymous-functions).
-* *break*{: .keyword }. 가장 가까운 바깥 쪽 루프를 종료합니다.
-* *continue*{: .keyword }. 가장 가까운 바깥 쪽 루프의 다음 단계로 진행합니다.
+* *return*{: .keyword }. 는 가장 가까운 함수를 기본적인 반환을 하거나 Anonymous 함수로 반환합니다.[anonymous function](lambdas.html#anonymous-functions).
+* *break*{: .keyword }. 는 가장 가까운 바깥 쪽 루프를 종료합니다.
+* *continue*{: .keyword }.는 가장 가까운 바깥 쪽 루프의 다음 단계로 진행합니다.
 
 ## Break and Continue Labels (부호)
 
@@ -25,7 +25,7 @@ Label 은 식별자의 형식을 따릅니다. 예를들어 `abc@`, `fooBar@`유
 }
 ```
 
-이제, *break*{: .keyword } 키워드나 *continue*{: .keyword } 키워드를 label로 지정해 함께 쓸 수 있습니다. 
+이제, *break*{: .keyword }나  *continue*{: .keyword }를 label로 지정해 함께 쓸 수 있습니다. 
 
 ``` kotlin
 loop@ for (i in 1..100) {
@@ -35,14 +35,14 @@ loop@ for (i in 1..100) {
 }
 ```
 
-*break*{: .keyword } 키워드로 지정된 label은 해당 label로 표시된 루프 직후 실행 지점으로 점프됩니다.
-*continue*{: .keyword } 키워드는 다음 반복 루프로 진행됩니다.
+*break*{: .keyword }로 지정된 label은 해당 label로 표시된 루프 직후 실행 지점으로 점프됩니다.
+*continue*{: .keyword }는 다음 반복 루프로 진행됩니다.
 
 
 ## Return at Labels
 
 함수 리터럴, local 함수 및 object 표현식으로, 함수는 kotlin에서 중첩 될 수 있습니다. 
-*return*{: .keyword } 키워드는 외부 함수에서 return 되도록 하는 권한이 있습니다. 
+*return*{: .keyword }는 외부 함수에서 return 되도록 하는 권한이 있습니다. 
 가장 중요한 사용 사례는 람다식에서의 반환입니다. 여러분이 이렇게 쓸 때 사용합니다.
 
 ``` kotlin
@@ -56,7 +56,7 @@ fun foo() {
 
 *return*{: .keyword } 표현식은 가장 가까운 바깥 쪽 함수에서 반환됩니다. 예를들어 `foo` 아래 함수를 보시면,
 이러한 로컬이 아닌 반환값은 전달된 람다식에서만 지원됩니다. 문법 참고 [inline functions](inline-functions.html).)
-람다식으로 반환해야 할 경우, 여러분은 *return*{: .keyword }: 키워드를 붙여 label 처리하여 권한을 부여해야 합니다.
+람다식으로 반환해야 할 경우, 여러분은 *return*{: .keyword }: 를 붙여 label 처리하여 권한을 부여해야 합니다.
 
 ``` kotlin
 fun foo() {
