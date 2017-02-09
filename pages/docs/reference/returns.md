@@ -9,9 +9,9 @@ title: "Returns and Jumps"
 
 코틀린에는 3가지 구조의 jump 연산자가 있습니다.
 
-* *return*{: .keyword }. 는 가장 가까운 함수를 기본적인 반환을 하거나 Anonymous 함수로 반환합니다.[anonymous function](lambdas.html#anonymous-functions).
-* *break*{: .keyword }. 는 가장 가까운 바깥 쪽 루프를 종료합니다.
-* *continue*{: .keyword }.는 가장 가까운 바깥 쪽 루프의 다음 단계로 진행합니다.
+* *return*{: .keyword }는 가장 가까운 함수를 기본적인 반환을 하거나 Anonymous 함수로 반환합니다.[anonymous function](lambdas.html#anonymous-functions).
+* *break*{: .keyword }는 가장 가까운 바깥 쪽 루프를 종료합니다.
+* *continue*{: .keyword }는 가장 가까운 바깥 쪽 루프의 다음 단계로 진행합니다.
 
 ## Break and Continue Labels (부호)
 
